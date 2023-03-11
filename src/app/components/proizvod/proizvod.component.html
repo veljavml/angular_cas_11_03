@@ -1,0 +1,57 @@
+<br><br><label for="">Filter</label> <input type="text" name="" id="" (keyup)="filter($event)"> <br><br>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="naziv">
+      <th mat-header-cell *matHeaderCellDef> Naziv </th>
+      <td mat-cell *matCellDef="let element"> {{element.naziv}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="boja">
+      <th mat-header-cell *matHeaderCellDef> Boja </th>
+      <td mat-cell *matCellDef="let element"> {{element.boja}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="cena">
+      <th mat-header-cell *matHeaderCellDef> Cena </th>
+      <td mat-cell *matCellDef="let element"> {{element.cena}} </td>
+    </ng-container>
+
+     <!-- Symbol Column -->
+     <ng-container matColumnDef="kategorija">
+        <th mat-header-cell *matHeaderCellDef> Kategorija </th>
+        <td mat-cell *matCellDef="let element"> {{element.kategorija}} </td>
+      </ng-container>
+
+       <!-- Symbol Column -->
+    <ng-container matColumnDef="datumKreiranja">
+        <th mat-header-cell *matHeaderCellDef> Datum </th>
+        <td mat-cell *matCellDef="let element"> {{element.datumKreiranja|date}} </td>
+      </ng-container>
+
+       <!-- Symbol Column -->
+    <ng-container matColumnDef="slika">
+        <th mat-header-cell *matHeaderCellDef> Slika </th>
+        <td mat-cell *matCellDef="let element"> {{element.slika}} </td>
+      </ng-container>
+
+          <!-- Symbol Column -->
+    <ng-container matColumnDef="akcija">
+        <th mat-header-cell *matHeaderCellDef> Akcija </th>
+        <td mat-cell *matCellDef="let element"> <input type="button" value="Obrisi" (click)="obrisi(element.id)"></td>
+      </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
